@@ -37,7 +37,7 @@ const deleteUserController = async (req, res) => {
   const { id } = req.params;
   try {
     const
-user = await User.findByIdAndDelete(id);
+    user = await User.findByIdAndDelete(id);
     res.json({message: "kullanıcı silindi",user});
   }
     catch (error) {
