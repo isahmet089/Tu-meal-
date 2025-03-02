@@ -1,18 +1,23 @@
 const User = require("../model/User");
 const sendEmail = require("../utils/sendEmail");
-
+const bcrypt =require("bcryptjs");
 const loginController = async (req, res) => {
   try {
     const { email, password } = req.body;
+    // email eşleme
     const user = await User.findOne({ email });
     if (!user) {
       return res
         .status(400)
         .json({ message: "Böyle bir kullanıcı bulunamadı" });
     }
-    if (user.password !== password) {
-      return res.status(400).json({ message: "Hatalı şifre" });
-    }
+    //şifre eşleme
+    const validPassword= await bcrypt.compare(password,user.password);
+    if (!validPassword) {
+      console.log(password,validPassword);
+      
+    return res.status(404).json({message:"şifre yanlış"})
+    } 
     res.json({ message: `Giriş başarılı, hoşgeldin ${user.firstName}` });
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -21,7 +26,16 @@ const loginController = async (req, res) => {
 const registerController = async (req, res,next) => {
   try {
     const { firstName, lastName, email, password } = req.body;
-    const user = new User({ firstName, lastName, email, password });
+    // email konnrolu yapıldı
+    const validEmail = await User.findOne({email:req.body.email});
+    if (validEmail) {
+      return res.status(400).json({message:"boyle bir kullanıcı zaten var!"})
+    }
+    //şifre hashleme
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword =await bcrypt.hash(password,salt)
+    
+    const user = new User({ firstName, lastName, email, password:hashedPassword });
     const newUser = await user.save();
 
     // Hoş geldiniz e-postası gönder

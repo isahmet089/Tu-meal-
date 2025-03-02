@@ -1,5 +1,5 @@
 const User = require('../model/User');
-
+const bcrypt =require("bcryptjs");
 const getUsersController = async (req, res) => {
   try {
     const users = await User.find();
@@ -10,7 +10,16 @@ const getUsersController = async (req, res) => {
 };
 const createUserController = async (req, res) => {
   const { firstName, lastName, email, password } = req.body;
-  const user = new User({ firstName, lastName, email, password });
+   // email konnrolu yapıldı
+      const validEmail = await User.findOne({email:req.body.email});
+      if (validEmail) {
+        return res.status(400).json({message:"boyle bir kullanıcı zaten var!"})
+      }
+   //şifre hashleme
+      const salt = await bcrypt.genSalt(10);
+      const hashedPassword =await bcrypt.hash(password,salt)
+
+  const user = new User({ firstName, lastName, email, password:hashedPassword });
   try {
     const newUser = await user.save();
     res.status(201).json(newUser);
