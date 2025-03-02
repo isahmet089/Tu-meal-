@@ -1,6 +1,9 @@
 const User = require("../model/User");
-const sendEmail = require("../utils/sendEmail");
 const bcrypt =require("bcryptjs");
+const {sendVerificationEmail,sendEmail}=require("../utils/sendEmail");
+const jwt=require("jsonwebtoken");
+require("dotenv").config();
+
 const loginController = async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -34,31 +37,38 @@ const registerController = async (req, res,next) => {
     //şifre hashleme
     const salt = await bcrypt.genSalt(10);
     const hashedPassword =await bcrypt.hash(password,salt)
-    
-    const user = new User({ firstName, lastName, email, password:hashedPassword });
+    // verify token hazırlanısı
+    const verificationToken = jwt.sign({ email }, process.env.JWT_SECRET, { expiresIn: "7d" });
+    // veri db ye gider
+    const user = new User({ firstName, lastName, email, password:hashedPassword ,verificationToken });
     const newUser = await user.save();
+    // verify edileme maili
 
-    // Hoş geldiniz e-postası gönder
     try {
-      const mailOptions = {
-        to: email,
-        subject: "Tumeal'a Hoş Geldiniz!",
-        html: `<h1>Merhaba, ${firstName}!</h1><p>Kayıt olduğun için teşekkürler. 🎉</p>`,
-      };
-      await sendEmail(mailOptions.to, mailOptions.subject, mailOptions.html);
-      console.log("E-posta başarıyla gönderildi:", mailOptions);
-      next();
+      await sendVerificationEmail(email, verificationToken);
+      console.log("basaşalı token maili gönderildi"); 
     } catch (error) {
-      console.log("E-posta gönderme hatası:", error);
-      next();
+      console.log("basarısız");
     }
+    // Hoş geldiniz e-postası gönder
+    // try {
+    //   await sendEmail(email,firstName);
+    //   console.log("E-posta başarıyla gönderildi:",email);
+    // } catch (error) {
+    //   console.log("E-posta gönderme hatası:", error);
+    // }
 
     res.status(201).json(newUser);
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
 };
+
+
+
 module.exports = {
   loginController,
-  registerController,
+  registerController
+
+  
 };
