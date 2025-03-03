@@ -44,6 +44,8 @@ const sendVerificationEmail = async (email, token) => {
       subject: "E-posta Doğrulama",
       html: `<p>Hesabınızı doğrulamak için <a href="${link}">buraya tıklayın</a></p>`,
     };
+    console.log(mailOptions);
+    
     const info = await transporter.sendMail(mailOptions);
     console.log("E-posta başarıyla gönderildi:", info.response);
     return info;

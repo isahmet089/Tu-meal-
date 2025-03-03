@@ -1,6 +1,6 @@
 const jwt = require("jsonwebtoken");
 const User =require("../model/User")
-const {accessToken,refreshToken} =require("../config/jwtConfig");
+const {accessToken,refreshToken,verifyEmailToken} =require("../config/jwtConfig");
 const RefreshToken= require("../model/RefreshToken");
 
 const verifyToken = async (req, res, next) => {
@@ -10,7 +10,7 @@ const verifyToken = async (req, res, next) => {
       return res.status(401).json({message:"Token gerekli!"});
     }
     // token doğrulama
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    const decoded = jwt.verify(token,verifyEmailToken.secret);
     req.user = decoded;
     next();
     } catch (error) {
@@ -25,7 +25,7 @@ const verifyEmail = async (req, res) => {
     const token = req.params.token;
 
     // Token'ı decode et
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    const decoded = jwt.verify(token, verifyEmailToken.secret);
     const user = await User.findOne({ email: decoded.email });
 
     if (!user) return res.status(400).json({ message: "Kullanıcı bulunamadı." });

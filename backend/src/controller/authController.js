@@ -1,9 +1,9 @@
 const User = require("../model/User");
 const bcrypt =require("bcryptjs");
-
+const path =require("path")
 const {sendVerificationEmail}=require("../utils/sendEmail");
 const jwt=require("jsonwebtoken");
-const {accessToken,refreshToken}=require("../config/jwtConfig");
+const {accessToken,refreshToken,verifyEmailToken}=require("../config/jwtConfig");
 const RefreshToken = require("../model/RefreshToken");
 require("dotenv").config();
 
@@ -37,6 +37,9 @@ const loginController = async (req, res) => {
     if (!validPassword) { 
     return res.status(404).json({message:"şifre yanlış"});
     }
+
+    // Kullanıcının eski tüm refresh tokenlarını sil
+    await RefreshToken.deleteMany({ userId: user._id });
     //jwt token oluştur
    const tokens =generateTokens(user);
 
@@ -44,20 +47,21 @@ const loginController = async (req, res) => {
    const refreshToken = new RefreshToken({userId:user._id,token:tokens.refreshToken});
     await refreshToken.save();
 
-    // Set cookies
-    res.cookie("accessToken", tokens.accessToken, {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      sameSite: "strict",
-      maxAge: 15 * 60 * 1000, // 15 minutes
-    });
-
-    res.cookie("refreshToken", tokens.refreshToken, {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      sameSite: "strict",
-      maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
-    });
+      // Cookie'leri ayarla
+      res.cookie("accessToken", tokens.accessToken, {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === "production",
+        sameSite: "strict",
+        maxAge: 15 * 60 * 1000, // 15 dakika
+      });
+  
+      res.cookie("refreshToken", tokens.refreshToken, {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === "production",
+        sameSite: "strict",
+        path: "/api/auth/refresh-token",
+        maxAge: 7 * 24 * 60 * 60 * 1000, // 7 gün
+      });
 
     res.json({
       message: `Giriş başarılı, hoşgeldin ${user.firstName}`,
@@ -81,9 +85,10 @@ const registerController = async (req, res,next) => {
     const salt = await bcrypt.genSalt(10);
     const hashedPassword =await bcrypt.hash(password,salt)
     // verify token hazırlanısı
-    const verificationToken = jwt.sign({ email }, process.env.JWT_SECRET, { expiresIn: "7d" });
+  
+    const verificationToken = jwt.sign({ email }, verifyEmailToken.secret, {expiresIn:verifyEmailToken.expiresIn});
     // veri db ye gider
-    const user = new User({ firstName, lastName, email, password:hashedPassword ,verificationToken });
+    const user = new User({ firstName, lastName, email, password:hashedPassword,verificationToken});
     const newUser = await user.save();
     // verify edileme maili
 
@@ -108,44 +113,56 @@ const registerController = async (req, res,next) => {
 };
 
 const refreshTokens = async (req, res) => {
- 
   try {
     const oldRefreshToken = req.body.refreshToken;
-    let bul = await RefreshToken.findOne({refreshToken: oldRefreshToken});
-    console.log(bul);
-    
-    const id = bul.userId;
-    const user = await User.findById(id);
-    
+    console.log(req.user);
+   
     // Remove old refresh token
-    await RefreshToken.deleteOne({ refreshToken: oldRefreshToken });
+    await RefreshToken.deleteOne({ token: oldRefreshToken });
 
     // Generate new tokens
     const tokens = generateTokens(req.user);
 
     // Save new refresh token
-    const newRefreshToken = new RefreshToken({
+    await RefreshToken.create({
       userId: req.user.id,
-      refreshToken: tokens.refreshToken
+      token: tokens.refreshToken,
     });
-    await newRefreshToken.save();
 
-    res.json(tokens);
+    // Set cookies
+    res.cookie("accessToken", tokens.accessToken, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "strict",
+      maxAge: 15 * 60 * 1000, // 15 minutes
+    });
+
+    res.cookie("refreshToken", tokens.refreshToken, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "strict",
+      path: "/api/auth/refresh-token",
+      maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
+    });
+
+    res.json({ message: "Tokens refreshed" });
   } catch (error) {
-    res.status(400).json({ message: error.message ,asda:"asda"});
+    res.status(400).json({ message: error.message });
   }
 };
 
-const logout = (req, res) => {
+const logout = async (req, res) => {
   try {
     const refreshToken = req.cookies.refreshToken;
+    console.log(refreshToken);
+    
     if (refreshToken) {
-      RefreshToken.removeToken(refreshToken);
+      await RefreshToken.deleteOne({token :refreshToken});
     }
 
     // Clear cookies
     res.clearCookie("accessToken");
-    res.clearCookie("refreshToken", { path: "/api/auth/refresh-token" });
+    res.clearCookie("refreshToken",{path:"/api/auth/refresh-token"});
 
 
     res.json({ message: "Logged out successfully" });
