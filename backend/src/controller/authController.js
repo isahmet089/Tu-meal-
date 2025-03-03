@@ -1,8 +1,25 @@
 const User = require("../model/User");
 const bcrypt =require("bcryptjs");
-const {sendVerificationEmail,sendEmail}=require("../utils/sendEmail");
+const {sendVerificationEmail}=require("../utils/sendEmail");
 const jwt=require("jsonwebtoken");
+const {accessToken,refreshToken}=require("../config/jwtConfig");
+const RefreshToken = require("../model/RefreshToken");
 require("dotenv").config();
+
+const generateTokens = (user) => {
+  const accessTokenPayload = { email: user.email ,password:user.password };
+  const refreshTokenPayload = { id: user.id };
+
+  const newAccessToken = jwt.sign(accessTokenPayload, accessToken.secret, {
+    expiresIn: accessToken.expiresIn,
+  });
+
+  const newRefreshToken = jwt.sign(refreshTokenPayload, refreshToken.secret, {
+    expiresIn: refreshToken.expiresIn,
+  });
+
+  return { accessToken: newAccessToken, refreshToken: newRefreshToken };
+};
 
 const loginController = async (req, res) => {
   try {
@@ -16,12 +33,20 @@ const loginController = async (req, res) => {
     }
     //şifre eşleme
     const validPassword= await bcrypt.compare(password,user.password);
-    if (!validPassword) {
-      console.log(password,validPassword);
-      
-    return res.status(404).json({message:"şifre yanlış"})
+    if (!validPassword) { 
+    return res.status(404).json({message:"şifre yanlış"});
     } 
-    res.json({ message: `Giriş başarılı, hoşgeldin ${user.firstName}` });
+    //jwt token oluştur
+   const tokens =generateTokens(user);
+
+   //save refresh token
+   const refreshToken = new RefreshToken({userId:user._id,token:tokens.refreshToken});
+    await refreshToken.save();
+    res.json({
+      message: `Giriş başarılı, hoşgeldin ${user.firstName}`,
+      user: user,
+      tokens,
+      });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -64,11 +89,51 @@ const registerController = async (req, res,next) => {
   }
 };
 
+const refreshTokens = async (req, res) => {
+ 
+  try {
+    const oldRefreshToken = req.body.refreshToken;
+    let bul = await RefreshToken.findOne({refreshToken: oldRefreshToken});
+    console.log(bul);
+    
+    const id = bul.userId;
+    const user = await User.findById(id);
+    
+    // Remove old refresh token
+    await RefreshToken.deleteOne({ refreshToken: oldRefreshToken });
+
+    // Generate new tokens
+    const tokens = generateTokens(req.user);
+
+    // Save new refresh token
+    const newRefreshToken = new RefreshToken({
+      userId: req.user.id,
+      refreshToken: tokens.refreshToken
+    });
+    await newRefreshToken.save();
+
+    res.json(tokens);
+  } catch (error) {
+    res.status(400).json({ message: error.message ,asda:"asda"});
+  }
+};
+
+const logout = (req, res) => {
+  try {
+    const { refreshToken } = req.body;
+    RefreshToken.removeToken(refreshToken);
+    res.json({ message: "Logged out successfully" });
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+};
 
 
 module.exports = {
   loginController,
-  registerController
+  registerController,
+  refreshTokens,
+  logout
 
   
 };

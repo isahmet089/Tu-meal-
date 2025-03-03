@@ -1,7 +1,7 @@
 const {logEvents}=require("./logEvents");
 const errorHandler =(err,req,res,next)=>{
     //hatayı logla
-    const errorMessage =`\n${err.name}:\t${err.message}\t${req.method}\t${req.url}\t${req.headers.origin}`;
+    const errorMessage =`${err.name}:\t${err.message}\t${req.method}\t${req.url}\t${req.headers.origin}\n`;
     logEvents(errorMessage,"errLog.log");
 
     console.log(err.stack);

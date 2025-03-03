@@ -17,7 +17,7 @@ const logEvents = async(message,logFileName)=>{
 };
 // request loglama
 const logger = (req,res,next)=>{
-    const message=`\n${req.method}\t${req.url}\t${req.headers.origin}`;
+    const message=`${req.method}\t${req.url}\t${req.headers.origin}\n`;
     logEvents(message,"reqLog.log");
     next();
 };
