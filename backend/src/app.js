@@ -2,17 +2,18 @@ const express = require('express');
 const app = express();
 const cors =require("cors");
 const corsConfig =require("./config/corsConfig");
+const {logger} = require("./middleware/logEvents");
 // ROUTES
 const userRoutes = require('./routes/userRoutes');
 const authRoutes = require('./routes/authRoutes');
 const mealRoutes = require('./routes/mealRoutes');
 const rateRoutes = require('./routes/userRateRoutes');
 
-
 // MIDDLEWARES
 app.use(cors(corsConfig.corsOption));
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
+app.use(logger);
 
 // ROUTES
 app.use('/api/users',userRoutes);
