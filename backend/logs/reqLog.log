@@ -47,3 +47,14 @@
 03.03.2025	 07.59.59	be28357b-dc68-46d9-b6ef-4fda6806af97	POST	/api/auth/refresh-token	undefined
 03.03.2025	 08.00.10	ca968de3-98ef-4f8f-86ea-a1b2a740e085	POST	/api/auth/login	undefined
 03.03.2025	 08.00.22	7d2928b1-785d-4de3-9ed9-130850fbd14e	POST	/api/auth/refresh-token	undefined
+03.03.2025	 16.58.47	9064d09c-6b01-4721-b83c-c8f6bc25ef64	POST	/api/auth/login	undefined
+03.03.2025	 16.59.05	b7e9750b-9ca3-43f8-9531-7d45dd4fb8cb	GET	/api/users/	undefined
+03.03.2025	 16.59.33	8658d02c-e419-4f89-8cda-430763d1a936	POST	/api/auth/logout	undefined
+03.03.2025	 17.00.05	d1a126a0-494c-436a-8c0e-b23cdf58709b	POST	/api/auth/logout	undefined
+03.03.2025	 17.00.33	05a34dc8-27b3-4bd1-ad33-530488291fa2	POST	/api/auth/logout	undefined
+03.03.2025	 17.00.37	48e738dd-c795-460e-a38c-c87fc47defd1	GET	/api/users/	undefined
+03.03.2025	 17.00.43	bd7b5d18-2cd5-4dc2-8f9c-529fcf5bb115	POST	/api/auth/login	undefined
+03.03.2025	 17.10.14	a306ea9e-15fa-48e0-8da0-9838882e6f8b	GET	/api/users/	undefined
+03.03.2025	 17.13.11	fc9dc7d6-f5db-4a16-8629-7b4bad58ca97	POST	/api/auth/login	undefined
+03.03.2025	 17.13.30	1fbee6a6-4b4b-41bf-ac62-d9de4d4b0d6a	GET	/api/users/	undefined
+03.03.2025	 17.13.39	3f0dd65c-e389-46da-be87-eff0841eb220	POST	/api/users/	undefined

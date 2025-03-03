@@ -1,5 +1,6 @@
 const User = require("../model/User");
 const bcrypt =require("bcryptjs");
+
 const {sendVerificationEmail}=require("../utils/sendEmail");
 const jwt=require("jsonwebtoken");
 const {accessToken,refreshToken}=require("../config/jwtConfig");
@@ -35,13 +36,29 @@ const loginController = async (req, res) => {
     const validPassword= await bcrypt.compare(password,user.password);
     if (!validPassword) { 
     return res.status(404).json({message:"şifre yanlış"});
-    } 
+    }
     //jwt token oluştur
    const tokens =generateTokens(user);
 
    //save refresh token
    const refreshToken = new RefreshToken({userId:user._id,token:tokens.refreshToken});
     await refreshToken.save();
+
+    // Set cookies
+    res.cookie("accessToken", tokens.accessToken, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "strict",
+      maxAge: 15 * 60 * 1000, // 15 minutes
+    });
+
+    res.cookie("refreshToken", tokens.refreshToken, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "strict",
+      maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
+    });
+
     res.json({
       message: `Giriş başarılı, hoşgeldin ${user.firstName}`,
       user: user,
@@ -51,6 +68,7 @@ const loginController = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+
 const registerController = async (req, res,next) => {
   try {
     const { firstName, lastName, email, password } = req.body;
@@ -120,8 +138,16 @@ const refreshTokens = async (req, res) => {
 
 const logout = (req, res) => {
   try {
-    const { refreshToken } = req.body;
-    RefreshToken.removeToken(refreshToken);
+    const refreshToken = req.cookies.refreshToken;
+    if (refreshToken) {
+      RefreshToken.removeToken(refreshToken);
+    }
+
+    // Clear cookies
+    res.clearCookie("accessToken");
+    res.clearCookie("refreshToken", { path: "/api/auth/refresh-token" });
+
+
     res.json({ message: "Logged out successfully" });
   } catch (error) {
     res.status(400).json({ message: error.message });
