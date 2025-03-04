@@ -5,6 +5,7 @@ const corsConfig =require("./config/corsConfig");
 const cookieParser=require("cookie-parser")
 const {logger} = require("./middleware/logEvents");
 const errorHandler = require("./middleware/errorHandler");
+const morgan =require("morgan")
 
 
 // MIDDLEWARES
@@ -13,6 +14,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(cookieParser());
 app.use(logger);
+app.use(morgan("dev"));
 
 
 // ROUTES

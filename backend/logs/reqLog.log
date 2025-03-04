@@ -211,3 +211,16 @@
 04.03.2025	 06.04.13	0153fbc6-81a1-4c7b-baf9-75f4ce6615ea	GET	/api/comment	undefined
 04.03.2025	 06.06.56	b2996e09-e783-41db-ba05-ae0e2ed7f13a	POST	/api/comment/	undefined
 04.03.2025	 06.08.23	adc9470b-c107-4c5c-a74c-dc046ca7dc4c	GET	/api/comment	undefined
+04.03.2025	 21.28.14	d7f4f164-86e9-4f94-809d-f015886a90d1	GET	/api/auth/login	undefined
+04.03.2025	 21.28.15	d0ce70de-78fe-43a2-b43e-36480e18d5ce	GET	/favicon.ico	undefined
+04.03.2025	 21.35.44	0cf96577-9efb-4aee-b8a1-8e96a2c99221	GET	/api/auth/login	undefined
+04.03.2025	 21.36.52	be05a127-370f-437f-8072-41facfd0c7d4	GET	/api/auth/login	undefined
+04.03.2025	 21.38.19	2ff7a5eb-2132-40a9-a75a-f9a4a6ec41aa	GET	/api/auth/login	undefined
+04.03.2025	 21.40.06	a86571b8-40f0-45d3-8b54-f9dd93dc56d9	GET	/api/auth/meal	undefined
+04.03.2025	 21.40.15	dc5d2089-2452-4065-bade-4fab921d08ed	GET	/api/auth/meal/day	undefined
+04.03.2025	 21.40.37	f7101aff-ce89-4883-813b-deaf2f0a7664	GET	/api/auth/meals/day	undefined
+04.03.2025	 21.40.51	7af370f9-8c4f-4dfa-bb78-e20d6c31b8c0	GET	/api/meals/day	undefined
+04.03.2025	 21.45.13	298be031-3ea7-4b92-a1c5-308dc914f4d8	POST	/api/auth/login	undefined
+04.03.2025	 21.45.24	e54cd41f-cb9e-483c-bb11-fe3668cabc5d	GET	/api/users/	undefined
+04.03.2025	 21.45.29	cb676542-fed1-4c53-85a0-45c67d97c8d9	POST	/api/auth/logout	undefined
+04.03.2025	 21.45.32	4dabb2eb-c5c5-4af9-b92b-ef57e044630d	GET	/api/users/	undefined

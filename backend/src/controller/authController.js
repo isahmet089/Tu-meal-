@@ -175,12 +175,19 @@ const logout = async (req, res) => {
   }
 };
 
+//  get login get register
+const loginGet= async (req,res)=>{
+  res.status(200).send("Login Page");
+};
+const registerGet= async (req,res)=>{
+  res.status(200).send("Register Page")
+};
 
 module.exports = {
   loginController,
   registerController,
   refreshTokens,
-  logout
-
-  
+  logout,
+  loginGet,
+  registerGet
 };
