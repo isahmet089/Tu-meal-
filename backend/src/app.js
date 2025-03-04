@@ -20,7 +20,7 @@ const userRoutes = require('./routes/userRoutes');
 const authRoutes = require('./routes/authRoutes');
 const mealRoutes = require('./routes/mealRoutes');
 const rateRoutes = require('./routes/userRateRoutes');
-
+const commentRoutes =require('./routes/commentRoutes');
 
 
 
@@ -29,6 +29,7 @@ app.use('/api/users',userRoutes);
 app.use('/api/auth',authRoutes);
 app.use('/api/meals',mealRoutes);
 app.use('/api/rate',rateRoutes);
+app.use('/api/comment',commentRoutes);
 
 
 app.use(errorHandler);
