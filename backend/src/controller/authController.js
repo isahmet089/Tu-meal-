@@ -63,7 +63,7 @@ const loginController = async (req, res) => {
         httpOnly: true,
         secure: process.env.NODE_ENV === "production",
         sameSite: "strict",
-        path: "/api/auth/refresh-token",
+        path: "/",
         maxAge: 7 * 24 * 60 * 60 * 1000, // 7 gün
       });
 
@@ -158,18 +158,18 @@ const refreshTokens = async (req, res) => {
 const logout = async (req, res) => {
   try {
     const refreshToken = req.cookies.refreshToken;
-    console.log(refreshToken);
-    
+    const accessToken = req.cookies.accessToken;
     if (refreshToken) {
       await RefreshToken.deleteOne({token :refreshToken});
     }
 
     // Clear cookies
+    const toki = 
     res.clearCookie("accessToken");
-    res.clearCookie("refreshToken",{path:"/api/auth/refresh-token"});
+    res.clearCookie("refreshToken",{path:"/"});
 
 
-    res.json({ message: "Logged out successfully" });
+    res.json({ message: "Logged out successfully : tokenler silindi", refToken:refreshToken ,accToken: accessToken });
   } catch (error) {
     res.status(400).json({ message: error.message });
   }

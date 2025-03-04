@@ -1,14 +1,16 @@
-const User = require("../model/User");
 const Meal = require("../model/Meal");
 const Comment =require("../model/Comment");
+const RefreshToken = require("../model/RefreshToken");
+
 
 const userCommentPost= async(req,res)=>{
     try {
-        const {userId, mealId, text, rating } = req.body;
-    
-        // Yorum yapılan yemeği ve kullanıcıyı kontrol et
+        const {mealId, text, rating } = req.body;
+        const token =req.cookies.refreshToken;
+        let user = await RefreshToken.findOne({ token: token });
+   
+        // Yorum yapılan yemeği 
         const meal = await Meal.findById(mealId);
-        const user = await User.findById(userId); // Kullanıcı ID'sini auth'dan alıyoruz
     
         if (!meal || !user) {
           return res.status(400).json({ error: 'Yemek veya kullanıcı bulunamadı.' });
@@ -16,7 +18,7 @@ const userCommentPost= async(req,res)=>{
     
         // Yeni yorumu oluştur
         const newComment = new Comment({
-          userId: user._id,
+          userId: user.userId,
           mealId: meal._id,
           text,
           rating,
