@@ -1,7 +1,5 @@
 
 const Meal = require('../model/Meal');
-const User = require('../model/User');
-
 
 const userRateMeal= async (req, res) => {
     try {

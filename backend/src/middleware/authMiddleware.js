@@ -17,7 +17,6 @@ const verifyToken = async (req, res, next) => {
       res.status(400).json({message:"geçersiz veya süresi dolmuş token!"})
     }
 };
-
 // E-posta Doğrulama
 const verifyEmail = async (req, res) => {
   try {
@@ -40,7 +39,6 @@ const verifyEmail = async (req, res) => {
     res.status(400).json({ message: "Geçersiz veya süresi dolmuş token." });
   }
 };
-
 // verfy 2
 const verifyToken2 = async (req, res, next) => {
   const authHeader =req.headers["authorization"];

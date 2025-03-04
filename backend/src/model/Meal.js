@@ -26,32 +26,12 @@ const mealSchema = new mongoose.Schema(
       },
     },
     calories: {
-      pilav: {
-        type: Number,
-        required: true,
-      },
-      corba: {
-        type: Number,
-        required: true,
-      },
-      tatli: {
-        type: Number,
-        required: false,
-        default: 0,
-      },
-      anaYemek: {
-        type: Number,
-        required: true,
-      },
-    },
-    totalCalories: {
       type: Number,
-      required: false,
+      required: true,
       default: 0,
     },
     avarageRating: {
       type: Number,
-      required: true,
       default: 0,
     },
     totalRating: {
@@ -62,7 +42,7 @@ const mealSchema = new mongoose.Schema(
     ratings: [ // Kullanıcıların verdiği puanları burada saklayacağız
       {
           userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
-          rating: { type: Number, required: true }
+          rating: { type: Number, default: 0 }
       }
   ],
     totalUsersRated: {

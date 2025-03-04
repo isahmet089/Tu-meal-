@@ -1,6 +1,5 @@
 const User = require("../model/User");
 const bcrypt =require("bcryptjs");
-const path =require("path")
 const {sendVerificationEmail}=require("../utils/sendEmail");
 const jwt=require("jsonwebtoken");
 const {accessToken,refreshToken,verifyEmailToken}=require("../config/jwtConfig");
@@ -37,9 +36,14 @@ const loginController = async (req, res) => {
     if (!validPassword) { 
     return res.status(404).json({message:"şifre yanlış"});
     }
+      if (user.isVerified === false) {
+        sendVerificationEmail(user.email, user.verificationToken);
+        return res.status(401).json({message:"lütfen email doğrulaması yapın"});
+      }
 
     // Kullanıcının eski tüm refresh tokenlarını sil
     await RefreshToken.deleteMany({ userId: user._id });
+
     //jwt token oluştur
    const tokens =generateTokens(user);
 

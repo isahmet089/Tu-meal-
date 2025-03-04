@@ -6,12 +6,14 @@ const cookieParser=require("cookie-parser")
 const {logger} = require("./middleware/logEvents");
 const errorHandler = require("./middleware/errorHandler");
 
+
 // MIDDLEWARES
 app.use(cors(corsConfig.corsOption));
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(cookieParser());
 app.use(logger);
+
 
 // ROUTES
 const userRoutes = require('./routes/userRoutes');

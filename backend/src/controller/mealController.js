@@ -49,8 +49,7 @@ const getMealController = async (req,res) => {
 const createMealController = async (req,res) => {
     try {
         const {date,mealName,calories,avarageRating} = req.body;
-        const totalCalories = (calories.pilav || 0) + (calories.corba || 0) + (calories.tatli || 0) + (calories.anaYemek || 0);
-        const newMeal = new Meal({date,mealName,calories,avarageRating,totalCalories});
+        const newMeal = new Meal({date,mealName,calories,avarageRating});
         await newMeal.save();
         res.status(201).json(newMeal);
     } catch (error) {
@@ -62,9 +61,8 @@ const updateMealController = async (req,res) => {
    try {
     const {id} = req.params;
     const {date,mealName,calories,avarageRating} = req.body;
-    const totalCalories = (calories.pilav || 0) + (calories.corba || 0) + (calories.tatli || 0) + (calories.anaYemek || 0);
     if(!mongoose.Types.ObjectId.isValid(id)) return res.status(404).json({message:'Böyle bir yemek bulunamadı'});
-    const updatedMeal = {date,mealName,calories,avarageRating,totalCalories,_id:id};
+    const updatedMeal = {date,mealName,calories,avarageRating,calories,_id:id};
     await Meal
     .findByIdAndUpdate(id,updatedMeal,{new:true});
     res.status(200).json(updatedMeal);
