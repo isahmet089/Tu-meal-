@@ -1,7 +1,7 @@
 
 module.exports={
     accessToken:{
-        secret:process.env.JWT_SECRET || "123456789",
+        secret:process.env.JWT_SECRET || "asdsadasdsad4896as48f5asd65fas6df5",
         expiresIn:"1m",//kısa ömür
     },
     refreshToken:{

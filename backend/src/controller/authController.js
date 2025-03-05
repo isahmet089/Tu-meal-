@@ -4,6 +4,7 @@ const {sendVerificationEmail}=require("../utils/sendEmail");
 const jwt=require("jsonwebtoken");
 const {accessToken,refreshToken,verifyEmailToken}=require("../config/jwtConfig");
 const RefreshToken = require("../model/RefreshToken");
+const session =require("express-session");
 require("dotenv").config();
 
 const generateTokens = (user) => {
@@ -66,12 +67,14 @@ const loginController = async (req, res) => {
         path: "/",
         maxAge: 7 * 24 * 60 * 60 * 1000, // 7 gün
       });
-
-    res.json({
-      message: `Giriş başarılı, hoşgeldin ${user.firstName}`,
-      user: user,
-      tokens,
-      });
+      // Kullanıcı oturumunu başlat
+      req.session.user = { firstName: user.firstName, lastName: user.lastName, email: user.email };
+      res.redirect("/home");
+      // res.json({
+      // message: `Giriş başarılı, hoşgeldin ${user.firstName}`,
+      // user: user,
+      // tokens,
+      // });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -177,10 +180,18 @@ const logout = async (req, res) => {
 
 //  get login get register
 const loginGet= async (req,res)=>{
-  res.status(200).send("Login Page");
+  // "index.ejs" sayfasını render et
+  res.render('login', {
+    title: 'Öğrenci Yönetim Sistemi', // Başlık verisi
+    message: 'Hoşgeldiniz!' // Mesaj verisi
+});
 };
 const registerGet= async (req,res)=>{
-  res.status(200).send("Register Page")
+   // "index.ejs" sayfasını render et
+   res.render('register', {
+    title: 'Öğrenci Yönetim Sistemi', // Başlık verisi
+    message: 'Hoşgeldiniz!' // Mesaj verisi
+});
 };
 
 module.exports = {

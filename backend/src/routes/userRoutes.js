@@ -10,8 +10,5 @@ router.put("/:id",verifyAccessToken,userController.updateUserController);
 router.delete("/:id",verifyAccessToken,userController.deleteUserController);
 
 
-
-
-
 module.exports = router;
 

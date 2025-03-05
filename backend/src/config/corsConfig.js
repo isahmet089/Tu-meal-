@@ -1,7 +1,7 @@
 exports.corsOption={
     origin:function(origin,callback){
         const whiteList=[
-            "http://localhost:5000/",
+            "http://localhost:5000",
             "http://127.0.0.1:5000"
         ];
         if(whiteList.indexOf(origin) !== -1 || !origin){

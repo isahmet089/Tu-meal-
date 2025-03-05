@@ -1,1 +1,353 @@
-03.03.2025	 05.15.40	6204aacb-7e84-4795-acda-2f6dc1a9466a	Error:	CORS politikası tarafından engellendiniz!!	OPTIONS	/api/users	https://www.google.com.tr03.03.2025	 05.15.40	0a6726e3-0926-4d27-9a27-c836f0956134	Error:	CORS politikası tarafından engellendiniz!!	GET	/api/users	https://www.google.com.tr
+03.03.2025	 05.15.40	6204aacb-7e84-4795-acda-2f6dc1a9466a	Error:	CORS politikası tarafından engellendiniz!!	OPTIONS	/api/users	https://www.google.com.tr03.03.2025	 05.15.40	0a6726e3-0926-4d27-9a27-c836f0956134	Error:	CORS politikası tarafından engellendiniz!!	GET	/api/users	https://www.google.com.tr05.03.2025	 14.47.13	a50a83dc-629c-4675-930c-e695e2837c75	ReferenceError:	C:\Users\fatih\Desktop\node\Tu-meal-\backend\src\views\blank.ejs:26
+    24| 
+    25| <body id="page-top">
+ >> 26|     <%- include(partials/header-nav)  %>
+    27|     <!-- Page Wrapper -->
+    28|     <div id="wrapper">
+    29| 
+
+partials is not defined	GET	/blank	undefined
+05.03.2025	 14.47.19	a69084ce-91a6-4d65-9c53-c8b738641a4b	ReferenceError:	C:\Users\fatih\Desktop\node\Tu-meal-\backend\src\views\blank.ejs:26
+    24| 
+    25| <body id="page-top">
+ >> 26|     <%- include(partials/header-nav)  %>
+    27|     <!-- Page Wrapper -->
+    28|     <div id="wrapper">
+    29| 
+
+partials is not defined	GET	/blank	undefined
+05.03.2025	 16.02.50	da53e03a-275f-4129-8a47-4242dd4cbf93	Error:	CORS politikası tarafından engellendiniz!!	POST	/login	http://localhost:5000
+05.03.2025	 18.49.11	d43cb086-a165-4f77-9ea4-ce7cc85d02b6	ReferenceError:	C:\Users\fatih\Desktop\node\Tu-meal-\backend\src\views\blank.ejs:29
+    27|     <div id="wrapper">
+    28|         <!-- header ve nav dosyam-->
+ >> 29|         <%- include('partials/header-nav')  %>
+    30|       
+    31| 
+    32|                 <!-- Begin Page Content -->
+
+C:\Users\fatih\Desktop\node\Tu-meal-\backend\src\views\partials\header-nav.ejs:299
+    297|                     <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+    298|                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+ >> 299|                         <span class="mr-2 d-none d-lg-inline text-gray-600 small"><%= user.firstName %> <%= user.lastName %></span>
+    300|                         <img class="img-profile rounded-circle"
+    301|                             src="img/undraw_profile.svg">
+    302|                     </a>
+
+user is not defined	GET	/blank	undefined
+05.03.2025	 18.49.15	c8ceb38d-4497-4fc5-98ff-1624ed5e91be	ReferenceError:	C:\Users\fatih\Desktop\node\Tu-meal-\backend\src\views\blank.ejs:29
+    27|     <div id="wrapper">
+    28|         <!-- header ve nav dosyam-->
+ >> 29|         <%- include('partials/header-nav')  %>
+    30|       
+    31| 
+    32|                 <!-- Begin Page Content -->
+
+C:\Users\fatih\Desktop\node\Tu-meal-\backend\src\views\partials\header-nav.ejs:299
+    297|                     <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+    298|                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+ >> 299|                         <span class="mr-2 d-none d-lg-inline text-gray-600 small"><%= user.firstName %> <%= user.lastName %></span>
+    300|                         <img class="img-profile rounded-circle"
+    301|                             src="img/undraw_profile.svg">
+    302|                     </a>
+
+user is not defined	GET	/blank	undefined
+05.03.2025	 18.49.24	aee1c6c7-5742-49a8-b39d-f855b3dbf780	ReferenceError:	C:\Users\fatih\Desktop\node\Tu-meal-\backend\src\views\blank.ejs:29
+    27|     <div id="wrapper">
+    28|         <!-- header ve nav dosyam-->
+ >> 29|         <%- include('partials/header-nav')  %>
+    30|       
+    31| 
+    32|                 <!-- Begin Page Content -->
+
+C:\Users\fatih\Desktop\node\Tu-meal-\backend\src\views\partials\header-nav.ejs:299
+    297|                     <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+    298|                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+ >> 299|                         <span class="mr-2 d-none d-lg-inline text-gray-600 small"><%= user.firstName %> <%= user.lastName %></span>
+    300|                         <img class="img-profile rounded-circle"
+    301|                             src="img/undraw_profile.svg">
+    302|                     </a>
+
+user is not defined	GET	/blank	undefined
+05.03.2025	 18.49.43	64473609-70cd-458b-b10d-6023defa6433	ReferenceError:	C:\Users\fatih\Desktop\node\Tu-meal-\backend\src\views\blank.ejs:29
+    27|     <div id="wrapper">
+    28|         <!-- header ve nav dosyam-->
+ >> 29|         <%- include('partials/header-nav')  %>
+    30|       
+    31| 
+    32|                 <!-- Begin Page Content -->
+
+C:\Users\fatih\Desktop\node\Tu-meal-\backend\src\views\partials\header-nav.ejs:299
+    297|                     <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+    298|                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+ >> 299|                         <span class="mr-2 d-none d-lg-inline text-gray-600 small"><%= user.firstName %> <%= user.lastName %></span>
+    300|                         <img class="img-profile rounded-circle"
+    301|                             src="img/undraw_profile.svg">
+    302|                     </a>
+
+user is not defined	GET	/blank	undefined
+05.03.2025	 18.50.26	9b26436f-ad03-4fe8-8c23-1bc68ee4800d	ReferenceError:	C:\Users\fatih\Desktop\node\Tu-meal-\backend\src\views\blank.ejs:29
+    27|     <div id="wrapper">
+    28|         <!-- header ve nav dosyam-->
+ >> 29|         <%- include('partials/header-nav')  %>
+    30|       
+    31| 
+    32|                 <!-- Begin Page Content -->
+
+C:\Users\fatih\Desktop\node\Tu-meal-\backend\src\views\partials\header-nav.ejs:299
+    297|                     <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+    298|                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+ >> 299|                         <span class="mr-2 d-none d-lg-inline text-gray-600 small"><%= user.firstName %> <%= user.lastName %></span>
+    300|                         <img class="img-profile rounded-circle"
+    301|                             src="img/undraw_profile.svg">
+    302|                     </a>
+
+user is not defined	GET	/blank	undefined
+05.03.2025	 18.50.29	d3884be7-d7c6-40b1-9e03-cebe28295e86	ReferenceError:	C:\Users\fatih\Desktop\node\Tu-meal-\backend\src\views\blank.ejs:29
+    27|     <div id="wrapper">
+    28|         <!-- header ve nav dosyam-->
+ >> 29|         <%- include('partials/header-nav')  %>
+    30|       
+    31| 
+    32|                 <!-- Begin Page Content -->
+
+C:\Users\fatih\Desktop\node\Tu-meal-\backend\src\views\partials\header-nav.ejs:299
+    297|                     <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+    298|                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+ >> 299|                         <span class="mr-2 d-none d-lg-inline text-gray-600 small"><%= user.firstName %> <%= user.lastName %></span>
+    300|                         <img class="img-profile rounded-circle"
+    301|                             src="img/undraw_profile.svg">
+    302|                     </a>
+
+user is not defined	GET	/blank	undefined
+05.03.2025	 18.50.48	1dc22287-fe03-4ae1-b739-4112fad281c0	ReferenceError:	C:\Users\fatih\Desktop\node\Tu-meal-\backend\src\views\blank.ejs:29
+    27|     <div id="wrapper">
+    28|         <!-- header ve nav dosyam-->
+ >> 29|         <%- include('partials/header-nav')  %>
+    30|       
+    31| 
+    32|                 <!-- Begin Page Content -->
+
+C:\Users\fatih\Desktop\node\Tu-meal-\backend\src\views\partials\header-nav.ejs:299
+    297|                     <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+    298|                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+ >> 299|                         <span class="mr-2 d-none d-lg-inline text-gray-600 small"><%= user.firstName %> <%= user.lastName %></span>
+    300|                         <img class="img-profile rounded-circle"
+    301|                             src="img/undraw_profile.svg">
+    302|                     </a>
+
+user is not defined	GET	/blank	undefined
+05.03.2025	 18.51.04	3acfc543-74c7-45ae-9750-d7bcffd6f7a3	ReferenceError:	C:\Users\fatih\Desktop\node\Tu-meal-\backend\src\views\blank.ejs:29
+    27|     <div id="wrapper">
+    28|         <!-- header ve nav dosyam-->
+ >> 29|         <%- include('partials/header-nav')  %>
+    30|       
+    31| 
+    32|                 <!-- Begin Page Content -->
+
+C:\Users\fatih\Desktop\node\Tu-meal-\backend\src\views\partials\header-nav.ejs:299
+    297|                     <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+    298|                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+ >> 299|                         <span class="mr-2 d-none d-lg-inline text-gray-600 small"> <%- user.firstName %> <%- user.lastName %></span>
+    300|                         <img class="img-profile rounded-circle"
+    301|                             src="img/undraw_profile.svg">
+    302|                     </a>
+
+user is not defined	GET	/blank	undefined
+05.03.2025	 18.51.18	fe0bf18e-875d-4cda-b118-c875c7a73a6b	TypeError:	C:\Users\fatih\Desktop\node\Tu-meal-\backend\src\views\home.ejs:28
+    26|     <!-- Page Wrapper -->
+    27|     <div id="wrapper">
+ >> 28|         <%- include("partials/header-nav") %>
+    29|         
+    30| 
+    31|         <!-- Content Wrapper -->
+
+C:\Users\fatih\Desktop\node\Tu-meal-\backend\src\views\partials\header-nav.ejs:299
+    297|                     <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+    298|                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+ >> 299|                         <span class="mr-2 d-none d-lg-inline text-gray-600 small"> <%- user.firstName %> <%- user.lastName %></span>
+    300|                         <img class="img-profile rounded-circle"
+    301|                             src="img/undraw_profile.svg">
+    302|                     </a>
+
+Cannot read properties of undefined (reading 'firstName')	GET	/home	undefined
+05.03.2025	 19.03.21	92362138-0d5e-4379-afb3-f4cd88cfb886	TypeError:	C:\Users\fatih\Desktop\node\Tu-meal-\backend\src\views\tables.ejs:32
+    30|     <!-- Page Wrapper -->
+    31|     <div id="wrapper">
+ >> 32|         <%- include('partials/header-nav')  %>
+    33|         <!-- Content Wrapper -->
+    34|         <div id="content-wrapper" class="d-flex flex-column">
+    35|             
+
+C:\Users\fatih\Desktop\node\Tu-meal-\backend\src\views\partials\header-nav.ejs:299
+    297|                     <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+    298|                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+ >> 299|                         <span class="mr-2 d-none d-lg-inline text-gray-600 small"> <%- user.firstName %> <%- user.lastName %></span>
+    300|                         <img class="img-profile rounded-circle"
+    301|                             src="img/undraw_profile.svg">
+    302|                     </a>
+
+Cannot read properties of undefined (reading 'firstName')	GET	/tables	undefined
+05.03.2025	 19.03.22	08964a99-9d84-475b-bb64-f41a258d46d3	TypeError:	C:\Users\fatih\Desktop\node\Tu-meal-\backend\src\views\tables.ejs:32
+    30|     <!-- Page Wrapper -->
+    31|     <div id="wrapper">
+ >> 32|         <%- include('partials/header-nav')  %>
+    33|         <!-- Content Wrapper -->
+    34|         <div id="content-wrapper" class="d-flex flex-column">
+    35|             
+
+C:\Users\fatih\Desktop\node\Tu-meal-\backend\src\views\partials\header-nav.ejs:299
+    297|                     <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+    298|                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+ >> 299|                         <span class="mr-2 d-none d-lg-inline text-gray-600 small"> <%- user.firstName %> <%- user.lastName %></span>
+    300|                         <img class="img-profile rounded-circle"
+    301|                             src="img/undraw_profile.svg">
+    302|                     </a>
+
+Cannot read properties of undefined (reading 'firstName')	GET	/tables	undefined
+05.03.2025	 19.03.54	241ea16e-cc5f-4b48-b7b9-61815bdf9111	TypeError:	C:\Users\fatih\Desktop\node\Tu-meal-\backend\src\views\tables.ejs:32
+    30|     <!-- Page Wrapper -->
+    31|     <div id="wrapper">
+ >> 32|         <%- include('partials/header-nav')  %>
+    33|         <!-- Content Wrapper -->
+    34|         <div id="content-wrapper" class="d-flex flex-column">
+    35|             
+
+C:\Users\fatih\Desktop\node\Tu-meal-\backend\src\views\partials\header-nav.ejs:299
+    297|                     <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+    298|                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+ >> 299|                         <span class="mr-2 d-none d-lg-inline text-gray-600 small"> <%- user.firstName %> <%- user.lastName %></span>
+    300|                         <img class="img-profile rounded-circle"
+    301|                             src="img/undraw_profile.svg">
+    302|                     </a>
+
+Cannot read properties of undefined (reading 'firstName')	GET	/tables	undefined
+05.03.2025	 19.04.01	34507b5d-627b-47b8-bca0-cbd7060aab02	TypeError:	C:\Users\fatih\Desktop\node\Tu-meal-\backend\src\views\tables.ejs:32
+    30|     <!-- Page Wrapper -->
+    31|     <div id="wrapper">
+ >> 32|         <%- include('partials/header-nav')  %>
+    33|         <!-- Content Wrapper -->
+    34|         <div id="content-wrapper" class="d-flex flex-column">
+    35|             
+
+C:\Users\fatih\Desktop\node\Tu-meal-\backend\src\views\partials\header-nav.ejs:299
+    297|                     <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+    298|                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+ >> 299|                         <span class="mr-2 d-none d-lg-inline text-gray-600 small"> <%- user.firstName %> <%- user.lastName %></span>
+    300|                         <img class="img-profile rounded-circle"
+    301|                             src="img/undraw_profile.svg">
+    302|                     </a>
+
+Cannot read properties of undefined (reading 'firstName')	GET	/tables	undefined
+05.03.2025	 19.04.17	44d78294-7196-4aa9-8fbf-0910b6afaf47	TypeError:	C:\Users\fatih\Desktop\node\Tu-meal-\backend\src\views\blank.ejs:29
+    27|     <div id="wrapper">
+    28|         <!-- header ve nav dosyam-->
+ >> 29|         <%- include('partials/header-nav')  %>
+    30|       
+    31| 
+    32|                 <!-- Begin Page Content -->
+
+C:\Users\fatih\Desktop\node\Tu-meal-\backend\src\views\partials\header-nav.ejs:299
+    297|                     <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+    298|                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+ >> 299|                         <span class="mr-2 d-none d-lg-inline text-gray-600 small"> <%- user.firstName %> <%- user.lastName %></span>
+    300|                         <img class="img-profile rounded-circle"
+    301|                             src="img/undraw_profile.svg">
+    302|                     </a>
+
+Cannot read properties of undefined (reading 'firstName')	GET	/blank	undefined
+05.03.2025	 19.05.05	c98f3a44-f2ca-425d-8b8d-c1203bdcb10f	TypeError:	C:\Users\fatih\Desktop\node\Tu-meal-\backend\src\views\blank.ejs:29
+    27|     <div id="wrapper">
+    28|         <!-- header ve nav dosyam-->
+ >> 29|         <%- include('partials/header-nav')  %>
+    30|       
+    31| 
+    32|                 <!-- Begin Page Content -->
+
+C:\Users\fatih\Desktop\node\Tu-meal-\backend\src\views\partials\header-nav.ejs:299
+    297|                     <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+    298|                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+ >> 299|                         <span class="mr-2 d-none d-lg-inline text-gray-600 small"> <%- user.firstName %> <%- user.lastName %></span>
+    300|                         <img class="img-profile rounded-circle"
+    301|                             src="img/undraw_profile.svg">
+    302|                     </a>
+
+Cannot read properties of undefined (reading 'firstName')	GET	/blank	undefined
+05.03.2025	 19.05.08	f692fca3-7c4b-4a70-ba72-5a54f19fcc8d	TypeError:	C:\Users\fatih\Desktop\node\Tu-meal-\backend\src\views\blank.ejs:29
+    27|     <div id="wrapper">
+    28|         <!-- header ve nav dosyam-->
+ >> 29|         <%- include('partials/header-nav')  %>
+    30|       
+    31| 
+    32|                 <!-- Begin Page Content -->
+
+C:\Users\fatih\Desktop\node\Tu-meal-\backend\src\views\partials\header-nav.ejs:299
+    297|                     <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+    298|                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+ >> 299|                         <span class="mr-2 d-none d-lg-inline text-gray-600 small"> <%- user.firstName %> <%- user.lastName %></span>
+    300|                         <img class="img-profile rounded-circle"
+    301|                             src="img/undraw_profile.svg">
+    302|                     </a>
+
+Cannot read properties of undefined (reading 'firstName')	GET	/blank	undefined
+05.03.2025	 19.05.17	d8ddff3c-8625-4420-bd91-052e2a347738	ReferenceError:	C:\Users\fatih\Desktop\node\Tu-meal-\backend\src\views\tables.ejs:79
+    77|                                     </tfoot>
+    78|                                     <tbody>
+ >> 79|                                         <% users.forEach(user => { %>
+    80|                                             <tr>
+    81|                                                 <td><%= user.firstName %></td>
+    82|                                                 <td><%= user.lastName %></td>
+
+users is not defined	GET	/tables	undefined
+05.03.2025	 19.08.03	8fc92f6e-a6f1-45ee-9d47-f71b6088c434	ReferenceError:	C:\Users\fatih\Desktop\node\Tu-meal-\backend\src\views\tables.ejs:78
+    76|                                     </tfoot>
+    77|                                     <tbody>
+ >> 78|                                         <% users.forEach(user => { %>
+    79|                                             <tr>
+    80|                                                 <td><%= user.firstName %></td>
+    81|                                                 <td><%= user.lastName %></td>
+
+users is not defined	GET	/tables	undefined
+05.03.2025	 19.08.13	0badec3b-0cbb-41c3-a479-02bb37e7e352	ReferenceError:	C:\Users\fatih\Desktop\node\Tu-meal-\backend\src\views\tables.ejs:69
+    67|         
+    68|                                     <tbody>
+ >> 69|                                         <% users.forEach(user => { %>
+    70|                                             <tr>
+    71|                                                 <td><%= user.firstName %></td>
+    72|                                                 <td><%= user.lastName %></td>
+
+users is not defined	GET	/tables	undefined
+05.03.2025	 19.08.14	bbba8cf8-35c1-467d-9413-ca710c9e6462	ReferenceError:	C:\Users\fatih\Desktop\node\Tu-meal-\backend\src\views\tables.ejs:69
+    67|         
+    68|                                     <tbody>
+ >> 69|                                         <% users.forEach(user => { %>
+    70|                                             <tr>
+    71|                                                 <td><%= user.firstName %></td>
+    72|                                                 <td><%= user.lastName %></td>
+
+users is not defined	GET	/tables	undefined
+05.03.2025	 19.12.02	0c58b8b8-d151-4ab1-a977-eaad66c980de	TypeError:	C:\Users\fatih\Desktop\node\Tu-meal-\backend\src\views\tables.ejs:32
+    30|     <!-- Page Wrapper -->
+    31|     <div id="wrapper">
+ >> 32|         <%- include('partials/header-nav')  %>
+    33|         <!-- Content Wrapper -->
+    34|         <div id="content-wrapper" class="d-flex flex-column">
+    35|             
+
+C:\Users\fatih\Desktop\node\Tu-meal-\backend\src\views\partials\header-nav.ejs:299
+    297|                     <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+    298|                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+ >> 299|                         <span class="mr-2 d-none d-lg-inline text-gray-600 small"> <%- user.firstName %> <%- user.lastName %></span>
+    300|                         <img class="img-profile rounded-circle"
+    301|                             src="img/undraw_profile.svg">
+    302|                     </a>
+
+Cannot read properties of undefined (reading 'firstName')	GET	/tables	undefined
+05.03.2025	 19.12.09	846f4551-f580-44b6-845d-62cc7e38b344	ReferenceError:	C:\Users\fatih\Desktop\node\Tu-meal-\backend\src\views\tables.ejs:69
+    67|         
+    68|                                     <tbody>
+ >> 69|                                         <% users.forEach(user => { %>
+    70|                                             <tr>
+    71|                                                 <td><%= user.firstName %></td>
+    72|                                                 <td><%= user.lastName %></td>
+
+users is not defined	GET	/tables	undefined
