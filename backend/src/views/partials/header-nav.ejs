@@ -32,13 +32,44 @@
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
             aria-expanded="true" aria-controls="collapseTwo">
             <i class="fas fa-fw fa-cog"></i>
-            <span>User && Meal</span>
+            <span>Kullanıcı işlemleri</span>
         </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">işlemler</h6>
-                <a class="collapse-item" href="/blank">Kullanıcı işlemleri</a>
-                <a class="collapse-item" href="/blank">Yemekhane işlemleri</a>
+                <a class="collapse-item" href="/user/getUser">Kullanıcılar</a>
+                <a class="collapse-item" href="/user/updateUser">Güncelleme</a>
+                <a class="collapse-item" href="/user/deleteUser">Kullanıcı Sil</a>
+            </div>
+        </div>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree"
+            aria-expanded="true" aria-controls="collapseTwo">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>Yemekhane İşlemleri</span>
+        </a>
+        <div id="collapseThree" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">işlemler</h6>
+                <a class="collapse-item" href="/meal/getMeal">Yemekler</a>
+                <a class="collapse-item" href="/meal/deleteMeal">Yemek Sil</a>
+                <a class="collapse-item" href="/meal/updateMeal">Güncelle</a>
+            </div>
+        </div>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFour"
+            aria-expanded="true" aria-controls="collapseTwo">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>Yorum İşlemleri</span>
+        </a>
+        <div id="collapseFour" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">işlemler</h6>
+                <a class="collapse-item" href="/comment/getComment">Yorumlar</a>
+                <a class="collapse-item" href="/comment/deleteComment">Yorum Sil</a>
+                <a class="collapse-item" href="/comment/updateComment">Güncelle</a>
             </div>
         </div>
     </li>
@@ -298,7 +329,7 @@
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <span class="mr-2 d-none d-lg-inline text-gray-600 small"> <%- user.firstName %> <%- user.lastName %></span>
                         <img class="img-profile rounded-circle"
-                            src="img/undraw_profile.svg">
+                            src="/img/undraw_profile.svg">
                     </a>
                     <!-- Dropdown - User Information -->
                     <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"

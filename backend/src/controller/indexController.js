@@ -1,4 +1,4 @@
-
+const User = require("../model/User")
 const indexGet = async(req,res)=>{
     res.render("home",{ user: req.session.user });
 };
@@ -12,7 +12,19 @@ const registerGet = async(req,res)=>{
     res.render("register");
 };
 const tablesGet = async(req,res)=>{
-    res.render("tables",{ user: req.session.user });
+    try {
+        if (!req.session.user) {
+            return res.redirect('/login');
+        }
+
+        const users = await User.find();
+        res.render("tables", {
+            users,
+            user: req.session.user
+        });
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
 };
 const p404Get = async(req,res)=>{
     res.render("404",{ user: req.session.user });
@@ -28,5 +40,6 @@ module.exports={
     p404Get,
     loginGet,
     registerGet,
-    tablesGet
+    tablesGet,
+    
 }

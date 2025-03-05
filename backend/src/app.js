@@ -39,14 +39,22 @@ const rateRoutes = require('./routes/userRateRoutes');
 const commentRoutes =require('./routes/commentRoutes');
 const indexRoutes = require("./routes/indexRoutes");
 const middlewareRoutes =require("./routes/middleRoutes");
-
+//admin routes
+const userAdminPanel = require("./routes/userPanel/userPanel")
+const mealAdminPanel = require("./routes/userPanel/mealPanel")
+const commentAdminPanel = require("./routes/userPanel/commentPanel")
 // ROUTES
 app.use('/api/users',userRoutes);
 app.use('/api/auth',authRoutes);
 app.use('/api/meals',mealRoutes);
 app.use('/api/rate',rateRoutes);
 app.use('/api/comment',commentRoutes);
+
+//admin panel
 app.use("/",indexRoutes);
+app.use("/user",userAdminPanel);
+app.use("/meal",mealAdminPanel);
+app.use("/comment",commentAdminPanel);
 
 //middle routtes
 app.use("/",middlewareRoutes)

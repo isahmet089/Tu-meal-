@@ -2,6 +2,7 @@ const express = require("express")
 const router = express.Router();
 const indexController = require("../controller/indexController")
 const {verifyAccessToken} =require("../middleware/authMiddleware")
+
 // index
 router.get("/home",verifyAccessToken,indexController.indexGet);
 // 404 found sayfası
@@ -17,7 +18,7 @@ router.get("/tables",indexController.tablesGet)
 router.get("/login",indexController.loginGet);
 
 // register
-router.get("/register",indexController.registerGet);
+router.get("/register",indexController.registerGet);    
 // forgot pass
 router.get("/forgot-password",indexController.passwordForgetGet);
 

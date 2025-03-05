@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Tables</title>
+    <title>Kullanıcılar</title>
 
     <!-- Custom fonts for this template -->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -42,10 +42,8 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Tables</h1>
-                    <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
-                        For more information about DataTables, please visit the <a target="_blank"
-                            href="#">official DataTables documentation</a>.</p>
+                    <h1 class="h3 mb-2 text-gray-800">Kullanıcılar</h1>
+                    <p class="mb-4">Kullanıcıların bilgileri.</p>
 
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
@@ -66,15 +64,15 @@
                                     </thead>
         
                                     <tbody>
-                                        <% users.forEach(user => { %>
-                                            <tr>
-                                                <td><%= user.firstName %></td>
-                                                <td><%= user.lastName %></td>
-                                                <td><%= user.email %></td>
-                                                <td><%= user.isVerified ? "Yes" : "No" %></td>
-                                                <td><%= new Date(user.createdAt).toLocaleDateString() %></td>
-                                            </tr>
-                                        <% }); %>
+                                        <% users.forEach(user => { %> <!-- 'users' yerine 'user' kullan -->
+  <tr>
+    <td><%= user.firstName %></td>
+    <td><%= user.lastName %></td>
+    <td><%= user.email %></td>
+    <td><%= user.isVerified ? "Yes" : "No" %></td>
+    <td><%= new Date(user.createdAt).toLocaleDateString() %></td> <!-- 'user' doğru -->
+  </tr>
+<% }); %>
                                     </tbody>
                                 </table>
                             </div>
