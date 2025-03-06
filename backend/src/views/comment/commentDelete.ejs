@@ -32,14 +32,24 @@
             <!-- Main Content -->
             <div id="content">
               
-                <!-- Begin Page Content -->
-                <div class="container-fluid">
-
-                    <!-- Page Heading -->
-                    <h1 class="h3 mb-4 text-gray-800">comment delete</h1>
-
+                <div class="container mt-5">
+                    <div class="row justify-content-center">
+                        <div class="col-md-6">
+                            <div class="card shadow-lg">
+                                <div class="card-header text-center">
+                                    <h3>Yorum Sil</h3>
+                                </div>
+                                <div class="card-body text-center">
+                                    <p><strong>“çok kötü”</strong> adlı yorumu silmek istediğinize emin misiniz?</p>
+                                    <form action="/comment/delete/" method="POST">
+                                        <button type="submit" class="btn btn-danger">Evet, Sil</button>
+                                        <a href="/" class="btn btn-primary">İptal</a>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <!-- /.container-fluid -->
             </div>
            
         </div>

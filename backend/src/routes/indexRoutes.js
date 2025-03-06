@@ -22,6 +22,32 @@ router.get("/register",indexController.registerGet);
 // forgot pass
 router.get("/forgot-password",indexController.passwordForgetGet);
 
+// forgot pass
+router.get("/forgot-password",indexController.passwordForgetGet);
 
+router.get("/notification", async(req,res)=>{
+    if (!req.session.user) {
+        return res.redirect('/login');
+    }
+    res.render("notification",{ user: req.session.user });
+});
+router.get("/profile", async(req,res)=>{
+    if (!req.session.user) {
+        return res.redirect('/login');
+    }
+    res.render("profile",{ user: req.session.user });
+});
+router.get("/profilSettings", async(req,res)=>{
+    if (!req.session.user) {
+        return res.redirect('/login');
+    }
+    res.render("profilSettings",{ user: req.session.user });
+});
+router.get("/logs", async(req,res)=>{
+    if (!req.session.user) {
+        return res.redirect('/login');
+    }
+    res.render("logs",{ user: req.session.user });
+});
 // boş sayfa 
-module.exports =router;
+module.exports =router; 

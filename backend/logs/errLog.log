@@ -1043,3 +1043,122 @@ C:\Users\fatih\Desktop\node\Tu-meal-\backend\src\views\partials\header-nav.ejs:3
     333|                     </a>
 
 Cannot read properties of undefined (reading 'firstName')	GET	/blank	undefined
+06.03.2025	 02.36.16	81531c9e-1e5a-45d2-8dd6-1dd71bb89ff6	ReferenceError:	C:\Users\fatih\Desktop\node\Tu-meal-\backend\src\views\users\userCreate.ejs:43
+    41|                                 </div>
+    42|                                 <div class="card-body">
+ >> 43|                                     <% if (message) { %>
+    44|                                         <div class="alert alert-danger"><%= message %></div>
+    45|                                     <% } %>
+    46|                                     <form action="/register" method="POST">
+
+message is not defined	GET	/user/createUser	undefined
+06.03.2025	 02.40.57	9f843fe2-12ea-4f28-8338-bef66b217137	ReferenceError:	C:\Users\fatih\Desktop\node\Tu-meal-\backend\src\views\users\userUpdate.ejs:43
+    41|                                 </div>
+    42|                                 <div class="card-body">
+ >> 43|                                     <% if (message) { %>
+    44|                                         <div class="alert alert-danger"><%= message %></div>
+    45|                                     <% } %>
+    46|                                     <form action="/update/<%= user._id %>" method="POST">
+
+message is not defined	GET	/user/updateUser	undefined
+06.03.2025	 02.50.26	588899e2-a953-44b5-a47c-02a70ccf75ac	ReferenceError:	C:\Users\fatih\Desktop\node\Tu-meal-\backend\src\views\comment\commentDelete.ejs:43
+    41|                                 </div>
+    42|                                 <div class="card-body text-center">
+ >> 43|                                     <p><strong>“<%= comment.text %>”</strong> adlı yorumu silmek istediğinize emin misiniz?</p>
+    44|                                     <form action="/comment/delete/<%= comment._id %>" method="POST">
+    45|                                         <button type="submit" class="btn btn-danger">Evet, Sil</button>
+    46|                                         <a href="/" class="btn btn-secondary">İptal</a>
+
+comment is not defined	GET	/comment/deleteComment	undefined
+06.03.2025	 02.50.28	2a4da468-5a7f-48ed-8b82-f29252f779ad	ReferenceError:	C:\Users\fatih\Desktop\node\Tu-meal-\backend\src\views\comment\commentUpdate.ejs:43
+    41|                                 </div>
+    42|                                 <div class="card-body">
+ >> 43|                                     <% if (message) { %>
+    44|                                         <div class="alert alert-danger"><%= message %></div>
+    45|                                     <% } %>
+    46|                                     <form action="/comment/update/<%= comment._id %>" method="POST">
+
+message is not defined	GET	/comment/updateComment	undefined
+06.03.2025	 02.50.30	21774b4e-29a7-4562-a8ea-f951cd828d9b	ReferenceError:	C:\Users\fatih\Desktop\node\Tu-meal-\backend\src\views\comment\commentCreate.ejs:43
+    41|                                 </div>
+    42|                                 <div class="card-body">
+ >> 43|                                     <% if (message) { %>
+    44|                                         <div class="alert alert-danger"><%= message %></div>
+    45|                                     <% } %>
+    46|                                     <form action="/comment/create" method="POST">
+
+message is not defined	GET	/comment/createComment	undefined
+06.03.2025	 02.51.42	b42cbcb3-5569-41ef-ac82-82883f8b0597	ReferenceError:	C:\Users\fatih\Desktop\node\Tu-meal-\backend\src\views\comment\commentUpdate.ejs:43
+    41|                                 </div>
+    42|                                 <div class="card-body">
+ >> 43|                                     <% if (message) { %>
+    44|                                         <div class="alert alert-danger"><%= message %></div>
+    45|                                     <% } %>
+    46|                                     <form action="/comment/update/<%= comment._id %>" method="POST">
+
+message is not defined	GET	/comment/updateComment	undefined
+06.03.2025	 02.52.39	c8a16c3e-9426-4973-b03f-085de6015a6c	ReferenceError:	C:\Users\fatih\Desktop\node\Tu-meal-\backend\src\views\comment\commentDelete.ejs:43
+    41|                                 </div>
+    42|                                 <div class="card-body text-center">
+ >> 43|                                     <p><strong>“<%= comment.text %>”</strong> adlı yorumu silmek istediğinize emin misiniz?</p>
+    44|                                     <form action="/comment/delete/<%= comment._id %>" method="POST">
+    45|                                         <button type="submit" class="btn btn-danger">Evet, Sil</button>
+    46|                                         <a href="/" class="btn btn-secondary">İptal</a>
+
+comment is not defined	GET	/comment/deleteComment	undefined
+06.03.2025	 02.52.42	380645b7-f5b9-4b3b-93fc-78639b5f9aae	ReferenceError:	C:\Users\fatih\Desktop\node\Tu-meal-\backend\src\views\comment\commentUpdate.ejs:43
+    41|                                 </div>
+    42|                                 <div class="card-body">
+ >> 43|                                     <% if (message) { %>
+    44|                                         <div class="alert alert-danger"><%= message %></div>
+    45|                                     <% } %>
+    46|                                     <form action="/comment/update/<%= comment._id %>" method="POST">
+
+message is not defined	GET	/comment/updateComment	undefined
+06.03.2025	 02.52.58	72a4be1b-c5a2-4da6-ac8e-c60d03728141	ReferenceError:	C:\Users\fatih\Desktop\node\Tu-meal-\backend\src\views\comment\commentUpdate.ejs:44
+    42|                                 <div class="card-body">
+    43|                                    
+ >> 44|                                     <form action="/comment/update/<%= comment._id %>" method="POST">
+    45|                                         <div class="mb-3">
+    46|                                             <label for="text" class="form-label">Yorum</label>
+    47|                                             <textarea class="form-control" id="text" name="text" rows="3" required><%= comment.text %></textarea>
+
+comment is not defined	GET	/comment/updateComment	undefined
+06.03.2025	 02.53.28	ffff9849-3b0a-4152-ad35-05e063608295	ReferenceError:	C:\Users\fatih\Desktop\node\Tu-meal-\backend\src\views\comment\commentDelete.ejs:43
+    41|                                 </div>
+    42|                                 <div class="card-body text-center">
+ >> 43|                                     <p><strong>“<%= comment.text %>”</strong> adlı yorumu silmek istediğinize emin misiniz?</p>
+    44|                                     <form action="/comment/delete/<%= comment._id %>" method="POST">
+    45|                                         <button type="submit" class="btn btn-danger">Evet, Sil</button>
+    46|                                         <a href="/" class="btn btn-secondary">İptal</a>
+
+comment is not defined	GET	/comment/deleteComment	undefined
+06.03.2025	 02.56.58	25ff9384-c940-4265-b202-10740f16e5dc	ReferenceError:	C:\Users\fatih\Desktop\node\Tu-meal-\backend\src\views\meals\mealUpdate.ejs:66
+    64|                                         <div class="mb-3">
+    65|                                             <label for="calories" class="form-label">Kalori</label>
+ >> 66|                                             <input type="number" class="form-control" id="calories" name="calories" value="<%= meal.calories %>" min="0" required>
+    67|                                         </div>
+    68|                                         <button type="submit" class="btn btn-primary w-100">Güncelle</button>
+    69|                                     </form>
+
+meal is not defined	GET	/meal/updateMeal	undefined
+06.03.2025	 03.10.06	07cc74ec-69da-4120-889c-2efa0421448b	Error:	Failed to lookup view "/notification" in views directory "C:\Users\fatih\Desktop\node\Tu-meal-\backend\src\views"	GET	/notification	undefined
+06.03.2025	 03.11.55	bed0e91c-f162-4817-9007-e2ccb499a0b2	Error:	Failed to lookup view "/notification" in views directory "C:\Users\fatih\Desktop\node\Tu-meal-\backend\src\views"	GET	/notification	undefined
+06.03.2025	 03.16.51	70161c8e-558d-4c34-9211-30d6aeab19d7	TypeError:	C:\Users\fatih\Desktop\node\Tu-meal-\backend\src\views\profile.ejs:43
+    41|                             <p><strong>Soyad:</strong> <%= user.lastName %></p>
+    42|                             <p><strong>Email:</strong> <%= user.email %></p>
+ >> 43|                             <p><strong>Hesap Oluşturma Tarihi:</strong> <%= user.createdAt.toLocaleDateString() %></p>
+    44|                             <div class="d-flex justify-content-between">
+    45|                                 <a href="/profile/edit" class="btn btn-warning">Profili Güncelle</a>
+    46|                                 <a href="/logout" class="btn btn-danger">Çıkış Yap</a>
+
+Cannot read properties of undefined (reading 'toLocaleDateString')	GET	/profile	undefined
+06.03.2025	 03.17.15	e1e00c34-15ff-49a3-ae42-678c83b3804f	TypeError:	C:\Users\fatih\Desktop\node\Tu-meal-\backend\src\views\profile.ejs:43
+    41|                             <p><strong>Soyad:</strong> <%= user.lastName %></p>
+    42|                             <p><strong>Email:</strong> <%= user.email %></p>
+ >> 43|                             <p><strong>Hesap Oluşturma Tarihi:</strong> <%= user._createdAt.toLocaleDateString() %></p>
+    44|                             <div class="d-flex justify-content-between">
+    45|                                 <a href="/profile/edit" class="btn btn-warning">Profili Güncelle</a>
+    46|                                 <a href="/logout" class="btn btn-danger">Çıkış Yap</a>
+
+Cannot read properties of undefined (reading 'toLocaleDateString')	GET	/profile	undefined

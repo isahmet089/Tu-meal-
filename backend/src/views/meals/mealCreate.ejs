@@ -37,42 +37,41 @@
                         <div class="col-md-6">
                             <div class="card shadow-lg">
                                 <div class="card-header text-center">
-                                    <h3>Yemek Güncelle</h3>
+                                    <h3>Yemek Ekle</h3>
                                 </div>
                                 <div class="card-body">
-                                    <form action="/meal/update/" method="POST">
+                                    <form action="/meal/create" method="POST">
                                         <div class="mb-3">
                                             <label for="date" class="form-label">Tarih</label>
-                                            <input type="date" class="form-control" id="date" name="date" value="" required>
+                                            <input type="date" class="form-control" id="date" name="date" required>
                                         </div>
                                         <div class="mb-3">
                                             <label for="corba" class="form-label">Çorba</label>
-                                            <input type="text" class="form-control" id="corba" name="mealName[corba]" value="" required>
+                                            <input type="text" class="form-control" id="corba" name="mealName[corba]" required>
                                         </div>
                                         <div class="mb-3">
                                             <label for="anaYemek" class="form-label">Ana Yemek</label>
-                                            <input type="text" class="form-control" id="anaYemek" name="mealName[anaYemek]" value="" required>
+                                            <input type="text" class="form-control" id="anaYemek" name="mealName[anaYemek]" required>
                                         </div>
                                         <div class="mb-3">
                                             <label for="pilav" class="form-label">Pilav</label>
-                                            <input type="text" class="form-control" id="pilav" name="mealName[pilav]" value="" required>
+                                            <input type="text" class="form-control" id="pilav" name="mealName[pilav]" required>
                                         </div>
                                         <div class="mb-3">
                                             <label for="tatli" class="form-label">Tatlı (Opsiyonel)</label>
-                                            <input type="text" class="form-control" id="tatli" name="mealName[tatli]" value="">
+                                            <input type="text" class="form-control" id="tatli" name="mealName[tatli]">
                                         </div>
                                         <div class="mb-3">
                                             <label for="calories" class="form-label">Kalori</label>
-                                            <input type="number" class="form-control" id="calories" name="calories" value="" min="0" required>
+                                            <input type="number" class="form-control" id="calories" name="calories" min="0" required>
                                         </div>
-                                        <button type="submit" class="btn btn-primary w-100">Güncelle</button>
+                                        <button type="submit" class="btn btn-primary w-100">Ekle</button>
                                     </form>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
            
         </div>
     </div>

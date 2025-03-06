@@ -32,25 +32,33 @@
             <!-- Main Content -->
             <div id="content">
               
-                <div class="container mt-5">
+                <div class=" mt-5">
                     <div class="row justify-content-center">
                         <div class="col-md-6">
                             <div class="card shadow-lg">
                                 <div class="card-header text-center">
-                                    <h3>Yorum Güncelle</h3>
+                                    <h3>Kullanıcı Oluştur</h3>
                                 </div>
                                 <div class="card-body">
-                                   
-                                    <form action="/comment/update/" method="POST">
+                                  
+                                    <form action="/register" method="POST">
                                         <div class="mb-3">
-                                            <label for="text" class="form-label">Yorum</label>
-                                            <textarea class="form-control" id="text" name="text" rows="3" required></textarea>
+                                            <label for="firstName" class="form-label">Ad</label>
+                                            <input type="text" class="form-control" id="firstName" name="firstName" required>
                                         </div>
                                         <div class="mb-3">
-                                            <label for="rating" class="form-label">Puan (1-5)</label>
-                                            <input type="number" class="form-control" id="rating" name="rating" min="1" max="5" value="" required>
+                                            <label for="lastName" class="form-label">Soyad</label>
+                                            <input type="text" class="form-control" id="lastName" name="lastName" required>
                                         </div>
-                                        <button type="submit" class="btn btn-success w-100">Yorumu Güncelle</button>
+                                        <div class="mb-3">
+                                            <label for="email" class="form-label">E-Posta</label>
+                                            <input type="email" class="form-control" id="email" name="email" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="password" class="form-label">Şifre</label>
+                                            <input type="password" class="form-control" id="password" name="password" required>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary w-100">Kayıt Ol</button>
                                     </form>
                                 </div>
                             </div>

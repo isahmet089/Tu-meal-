@@ -31,18 +31,30 @@
         <div id="content-wrapper" class="d-flex flex-column">
             <!-- Main Content -->
             <div id="content">
+              
                 <div class="container mt-5">
                     <div class="row justify-content-center">
                         <div class="col-md-6">
                             <div class="card shadow-lg">
                                 <div class="card-header text-center">
-                                    <h3>Yemek Sil</h3>
+                                    <h3>Yorum Ekle</h3>
                                 </div>
-                                <div class="card-body text-center">
-                                    <p><strong>Sulu Köfte</strong> adlı yemeği silmek istediğinize emin misiniz?</p>
-                                    <form action="/meal/delete/ " method="POST">
-                                        <button type="submit" class="btn btn-danger">Evet, Sil</button>
-                                        <a href="/" class="btn btn-secondary">İptal</a>
+                                <div class="card-body">
+                                    
+                                    <form action="/comment/create" method="POST">
+                                        <div class="mb-3">
+                                            <label for="mealId" class="form-label">Yemek Seç</label>
+                                            <input type="text" class="form-control" id="mealId" name="mealId" placeholder="Yemek ID girin" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="text" class="form-label">Yorum</label>
+                                            <textarea class="form-control" id="text" name="text" rows="3" required></textarea>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="rating" class="form-label">Puan (1-5)</label>
+                                            <input type="number" class="form-control" id="rating" name="rating" min="1" max="5" required>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary w-100">Yorumu Ekle</button>
                                     </form>
                                 </div>
                             </div>
